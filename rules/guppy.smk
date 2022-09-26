@@ -9,7 +9,7 @@ rule guppy:
         os.path.join(REBASECALLED_FAST5, "{sample}", "sequencing_summary.txt"),
         directory(os.path.join(REBASECALLED_FAST5, "{sample}", "pass"))
     params:
-        os.path.join(GuppyDir, "guppy_basecaller")
+        os.path.join(GuppyDir, "guppy_basecaller"),
         os.path.join(REBASECALLED_FAST5, "{sample}")
     threads:
         16
