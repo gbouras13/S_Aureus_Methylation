@@ -18,7 +18,7 @@
 
 # run from Bacteria_Multiplex
 
-SNK_DIR="/hpcfs/users/a1667917/Bacteria_Multiplex/Nanopore_Bacterial_Assembly_Pipeline"
+SNK_DIR="/hpcfs/users/a1667917/S_Aureus_Methylation"
 PROF_DIR="/hpcfs/users/a1667917/snakemake_slurm_profile"
 
 cd $SNK_DIR
@@ -26,11 +26,12 @@ cd $SNK_DIR
 module load Anaconda3/2020.07
 conda activate snakemake_clean_env
 
-# snakemake -c 1 -s runner.smk --use-conda --profile $PROF_DIR/bact_assembly --conda-frontend conda --conda-create-envs-only \
-# --config csv=complete_metadata.csv Output=/hpcfs/users/a1667917/Staph_Final_Assemblies/Complete_Assembly_Output Polypolish_Dir=/hpcfs/users/a1667917/Polypolish min_chrom_length=2400000
 
-snakemake -c 1 -s runner.smk --use-conda  --conda-frontend conda --profile $PROF_DIR/bact_assembly  \
---config csv=complete_metadata.csv Output=/hpcfs/users/a1667917/Staph_Final_Assemblies/Complete_Assembly_Output Polypolish_Dir=/hpcfs/users/a1667917/Polypolish min_chrom_length=2400000
+# snakemake -c 1 -s runner.smk --use-conda  --conda-frontend conda --profile $PROF_DIR/methylation  --conda-create-envs-only  \
+# --config csv=complete_metadata.csv Output=/hpcfs/users/a1667917/S_Aureus_Methylation/Output 
+
+snakemake -c 1 -s runner.smk --use-conda  --conda-frontend conda --profile $PROF_DIR/methylation  \
+--config csv=complete_metadata.csv Output=/hpcfs/users/a1667917/S_Aureus_Methylation/Output 
 
 
 conda deactivate
