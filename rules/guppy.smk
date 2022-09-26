@@ -15,7 +15,7 @@ rule guppy:
         16
     resources:
         mem_mb=16000,
-        partititon=v100,
+        partititon='v100',
         gpu=1
     shell:
         """
