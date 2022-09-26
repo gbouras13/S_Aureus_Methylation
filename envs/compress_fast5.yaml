@@ -1,7 +1,7 @@
-name: mlst
+name: compress_fast5
 channels:
     - conda-forge
     - bioconda
     - defaults
 dependencies:
-    - mlst
+    - ont-fast5-api

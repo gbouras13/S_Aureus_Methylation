@@ -7,19 +7,20 @@ rule guppy:
         get_fast5_dir
     output:
         os.path.join(REBASECALLED_FAST5, "{sample}", "sequencing_summary.txt"),
-        directory(os.path.join(REBASECALLED_FAST5, "{sample}", "pass"))
+        directory(os.path.join(REBASECALLED_FAST5, "{sample}", "workspace"))
     params:
         os.path.join(GuppyDir, "guppy_basecaller"),
         os.path.join(REBASECALLED_FAST5, "{sample}")
     threads:
-        16
+        4
     resources:
-        mem_mb=16000,
+        mem_mb=8000,
         partition='v100',
-        gpu=1
+        gpu=1,
+        time=180
     shell:
         """
-        {params[0]} --compress_fastq -i {input[0]} -s {params[1]} -c dna_r9.4.1_450bps_sup.cfg  -x auto  --fast5_out  --num_callers 4 --cpu_threads_per_caller 4
+        {params[0]} --compress_fastq -i {input[0]} -s {params[1]} -c dna_r9.4.1_450bps_sup.cfg  -x auto  --fast5_out  --num_callers 4 --cpu_threads_per_caller 1
         """
 
 rule aggr_guppy:

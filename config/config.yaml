@@ -14,4 +14,4 @@ BigJobMem: 32000
 BigJobCpu: 64       
 SmallJobMem: 4000
 
-GuppyDir: '/hpcfs/users/a1667917/Nano_Basecalling/ont-guppy/bin/'
+GuppyDir: '/hpcfs/users/a1667917/Nano_Basecalling/ont-guppy/bin'
