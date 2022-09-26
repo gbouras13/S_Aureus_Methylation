@@ -13,7 +13,7 @@ def samplesFromCsv(csvFile):
             l = line.strip().split(',')
             if len(l) == 2:
                 outDict[l[0]] = {}
-                if os.path.isfile(l[1]):
+                if os.path.isdir(l[1]):
                     outDict[l[0]]['DIR'] = l[1]
                 else:
                     sys.stderr.write("\n"
