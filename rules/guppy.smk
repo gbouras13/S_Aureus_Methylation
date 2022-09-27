@@ -21,7 +21,7 @@ rule guppy:
     resources:
         mem_mb=8000,
         partition='v100',
-        slurm="gres=gpu:1",
+        slurm="--gres=gpu:1",
         time=120
     shell:
         """
