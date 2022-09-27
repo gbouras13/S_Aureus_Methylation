@@ -6,7 +6,7 @@ Ensures consistent variable names and file locations for the pipeline.
 
 ### OUTPUT DIRECTORY
 if config['Output'] is None:
-    OUTPUT = 'Assemblies_Output'
+    OUTPUT = 'Meth_Output'
 else:
     OUTPUT = config['Output']
 
@@ -15,26 +15,16 @@ else:
 LOGS = os.path.join(OUTPUT, 'LOGS')
 TMP = os.path.join(OUTPUT, 'TMP')
 
-
+# basecalled outdirs
 REBASECALLED_FAST5 = os.path.join(OUTPUT, 'REBASECALLED_FAST5')
 REBASECALLED_FAST5_GZIP = os.path.join(OUTPUT, 'REBASECALLED_FAST5_GZIP')
 
-PLASSEMBLER = os.path.join(OUTPUT, 'PLASSEMBLER')
-PLASSEMBLER_FASTAS = os.path.join(OUTPUT, 'PLASSEMBLER_FASTAS')
-PLASSEMBLER_SUMMARIES = os.path.join(OUTPUT, 'PLASSEMBLER_SUMMARIES')
-COVERAGE_TMP = os.path.join(TMP, 'COVERAGE')
-ASSEMBLIES = os.path.join(TMP, 'ASSEMBLIES')
-MEDAKA = os.path.join(TMP, 'MEDAKA')
-BWA = os.path.join(TMP, 'BWA')
-FASTP = os.path.join(TMP, 'FASTP')
-POLYPOLISH_OUT = os.path.join(OUTPUT, 'POLYPOLISH')
-SUMMARY_OUT = os.path.join(OUTPUT, 'SUMMARY')
-CHROMOSOME = os.path.join(OUTPUT, 'CHROMOSOME')
-PLASMIDS = os.path.join(OUTPUT, 'PLASMIDS')
-ASSEMBLY_INFO = os.path.join(OUTPUT, 'ASSEMBLY_INFO')
-PLASMID_COVERAGE = os.path.join(OUTPUT, 'ASSEMBLY_INFO')
-MLST = os.path.join(OUTPUT, 'MLST')
-SRST2 = os.path.join(OUTPUT, 'SRST2')
+# nanodisco outdirs 
+NANODISCO_ANALYSIS = os.path.join(OUTPUT, 'NANODISCO_ANALYSIS')
+NANODISCO_PREPROCESS = os.path.join(NANODISCO_ANALYSIS, 'NANODISCO_PREPROCESS')
+NANODISCO_DIFFERENCE = os.path.join(NANODISCO_ANALYSIS, 'NANODISCO_DIFFERENCE')
+NANODISCO_MERGE = os.path.join(NANODISCO_ANALYSIS, 'NANODISCO_MERGE')
+NANODISCO_MOTIF = os.path.join(NANODISCO_ANALYSIS, 'NANODISCO_MOTIF')
 
 
 

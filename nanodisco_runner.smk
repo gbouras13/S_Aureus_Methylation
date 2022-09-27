@@ -19,7 +19,9 @@ include: "rules/directories.smk"
 CSV = config['csv']
 OUTPUT = config['Output']
 GuppyDir = config['GuppyDir']
-
+RefFastaDir = config['RefFastaDir']
+NanoDiscoSingularityDir = config['NanoDiscoSingularityDir']
+C308Fast5Dir = config['C308Fast5Dir']
 
 BigJobMem = config["BigJobMem"]
 BigJobCpu = config["BigJobCpu"]
@@ -37,6 +39,12 @@ SAMPLES = list(dictReads.keys())
 # Import rules and functions
 include: "rules/targets.smk"
 include: "rules/compress_fast5.smk"
+include: "rules/index_reference.smk"
+include: "rules/nanodisco_preprocess.smk"
+include: "rules/nanodisco_chunk.smk"
+include: "rules/nanodisco_difference.smk"
+include: "rules/nanodisco_merge.smk"
+include: "rules/nanodisco_motif.smk"
 
 
 rule all:

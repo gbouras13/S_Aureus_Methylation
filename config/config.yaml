@@ -15,4 +15,11 @@ BigJobCpu: 64
 MedJobCpu: 8        
 SmallJobMem: 4000
 
+# guppy dir
 GuppyDir: '/hpcfs/users/a1667917/Nano_Basecalling/ont-guppy/bin'
+# where the basecalled fastas are
+RefFastaDir: '/hpcfs/users/a1667917/Staph_Final_Assemblies/Complete_Assembly_Output/CHROMOSOME'
+# where the nanodisco container is
+NanoDiscoSingularityDir: '/hpcfs/users/a1667917/S_Methylation'
+# where the WGA fast5 are
+C308Fast5Dir: '/hpcfs/users/a1667917/S_Methylation/C308_WGA_gzip'
