@@ -19,7 +19,7 @@
 # run from Bacteria_Multiplex
 
 SNK_DIR="/hpcfs/users/a1667917/S_Aureus_Methylation"
-PROF_DIR="/hpcfs/users/a1667917/snakemake_slurm_profile"
+PROF_DIR="/hpcfs/users/a1667917/S_Aureus_Methylation/snakemake_profile/methylation"
 
 cd $SNK_DIR
 
