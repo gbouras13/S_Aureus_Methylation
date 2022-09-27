@@ -2,7 +2,12 @@ def get_fast5_dir(wildcards):
     return dictReads[wildcards.sample]["DIR"]
 
 rule guppy:
-    """Re-basecall fast5 files."""
+    """
+    Re-basecall fast5 files.
+    https://fame.flinders.edu.au/blog/2021/08/02/snakemake-profiles-updated
+    https://github.com/Snakemake-Profiles/slurm
+    specify gpu through slurm not gpu and don't include gpu in the snakemake profile, or else the other rules won't run
+    """
     input:
         get_fast5_dir
     output:
@@ -16,7 +21,7 @@ rule guppy:
     resources:
         mem_mb=8000,
         partition='v100',
-        gpu=1,
+        slurm="gres=gpu:1",
         time=120
     shell:
         """
