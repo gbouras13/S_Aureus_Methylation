@@ -5,18 +5,18 @@ rule nanodisco_preprocess_sample:
         os.path.join(RefFastaDir, "{sample}.fasta"),
         os.path.join(RefFastaDir, "{sample}.fasta.fai")
     output:
-        os.path.join(NANODISCO_PREPROCESS, "{sample}", "{sample}.sorted.bam")
+        os.path.join(NANODISCO_PREPROCESS, "{sample}", "{sample}.sorted.bam"),
+        os.path.join(NANODISCO_PREPROCESS, "{sample}")
     threads:
         BigJobCpu
     params:
-        os.path.join(NanoDiscoSingularityDir, "nanodisco"),
-        os.path.join(NANODISCO_PREPROCESS, "{sample}")
+        os.path.join(NanoDiscoSingularityDir, "nanodisco")
     resources:
         mem_mb=BigJobMem
     shell:
         """
         module load Singularity
-        singularity exec {params[0]} nanodisco preprocess -p {threads} -f {input[0]} -s {wildcards.sample} -o {params[1]} -r {input[1]}
+        singularity exec {params[0]} nanodisco preprocess -p {threads} -f {input[0]} -s {wildcards.sample} -o {output[1]} -r {input[1]}
         """
 
 rule nanodisco_preprocess_reference:
@@ -26,20 +26,20 @@ rule nanodisco_preprocess_reference:
         os.path.join(RefFastaDir, "{sample}.fasta"),
         os.path.join(RefFastaDir, "{sample}.fasta.fai")
     output:
-        os.path.join(NANODISCO_PREPROCESS, "{sample}", "C308_WGA.sorted.bam")
+        os.path.join(NANODISCO_PREPROCESS, "{sample}", "C308_WGA.sorted.bam"),
+        directory(os.path.join(NANODISCO_PREPROCESS, "{sample}"))
     threads:
         BigJobCpu
     params:
         os.path.join(NanoDiscoSingularityDir, "nanodisco"), 
         C308Fast5Dir,
-        'C308_WGA',
-        os.path.join(NANODISCO_PREPROCESS, "{sample}")
+        'C308_WGA'
     resources:
         mem_mb=BigJobMem
     shell:
         """
         module load Singularity
-        singularity exec {params[0]} nanodisco preprocess -p {threads} -f {params[1]} -s {params[2]} -o {params[3]} -r {input[1]}
+        singularity exec {params[0]} nanodisco preprocess -p {threads} -f {params[1]} -s {params[2]} -o {output[1]} -r {input[1]}
         """
 
 rule aggr_nanodisco_preprocess:
