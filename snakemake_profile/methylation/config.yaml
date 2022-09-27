@@ -1,0 +1,28 @@
+cluster:
+  mkdir -p logs/{rule}/ &&
+  sbatch
+    --nodes=1
+    --cpus-per-task={threads}
+    --mem={resources.mem_mb}
+    --time={resources.time}
+    --job-name=smk-{rule}
+    --output=logs/{rule}/{jobid}.out
+    --error=logs/{rule}/{jobid}.err
+    --partition={resources.partition}
+default-resources:
+  - mem_mb=100000
+  - time=960 
+  - partition=batch
+jobs: 100
+latency-wait: 30
+local-cores: 64
+restart-times: 1
+max-jobs-per-second: 1
+keep-going: True
+rerun-incomplete: True
+printshellcmds: True
+scheduler: greedy
+use-conda: True
+conda-frontend: conda
+cluster-status: /hpcfs/users/a1667917/S_Aureus_Methylation/snakemake_profile/methylation/slurm-status.py
+max-status-checks-per-second: 5
