@@ -18,7 +18,7 @@ rule nanodisco_merge:
         singularity exec {params[0]} nanodisco merge  -d {input[0]} -o {params[1]} -b {wildcards.sample}
         """
 
-rule aggr_nanodisco_difference:
+rule aggr_nanodisco_merge:
     """Aggregate."""
     input:
         expand(os.path.join(NANODISCO_MERGE, "{sample}", "{sample}.RDS"), sample = SAMPLES),

@@ -19,7 +19,7 @@ rule nanodisco_motif:
         singularity exec {params[0]} nanodisco motif  -d {input[0]} -o {params[1]} -r {input[1]}
         """
 
-rule aggr_nanodisco_difference:
+rule aggr_nanodisco_motif:
     """Aggregate."""
     input:
         expand(os.path.join(NANODISCO_MOTIF, "{sample}", "motif_detection", "meme_{sample}", "meme_1", "meme.txt"), sample = SAMPLES),
