@@ -11,7 +11,8 @@ Staph: True
 
 
 BigJobMem: 32000     
-BigJobCpu: 64       
+BigJobCpu: 64
+MedJobCpu: 8        
 SmallJobMem: 4000
 
 GuppyDir: '/hpcfs/users/a1667917/Nano_Basecalling/ont-guppy/bin'

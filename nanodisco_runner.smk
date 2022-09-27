@@ -23,6 +23,7 @@ GuppyDir = config['GuppyDir']
 
 BigJobMem = config["BigJobMem"]
 BigJobCpu = config["BigJobCpu"]
+MedJobCpu = config["MedJobCpu"]
 SmallJobMem = config["SmallJobMem"]
 
 
@@ -35,9 +36,9 @@ SAMPLES = list(dictReads.keys())
 
 # Import rules and functions
 include: "rules/targets.smk"
-include: "rules/guppy.smk"
+include: "rules/compress_fast5.smk"
 
 
 rule all:
     input:
-        GPUFiles
+        NanoDiscoFiles

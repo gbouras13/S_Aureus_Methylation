@@ -6,12 +6,12 @@ rule compress_fast5:
     output:
         directory(os.path.join(REBASECALLED_FAST5_GZIP, "{sample}"))
     threads:
-        BigJobCpu
+        MedJobCpu
     conda:
         os.path.join('..', 'envs','compress_fast5.yaml')
     resources:
         mem_mb=16000,
-        time=120
+        time=60
     shell:
         """
         compress_fast5 -t {threads} -i {input[0]}  -s {output[0]} -c gzip

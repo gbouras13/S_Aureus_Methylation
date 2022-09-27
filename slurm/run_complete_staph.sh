@@ -29,15 +29,15 @@ conda activate snakemake_clean_env
 
 
 # rebasecall 
-snakemake -c 1 -s rebasecall_runner.smk --use-conda  --conda-frontend conda --profile $PROF_DIR/methylation_gpu  \
---config csv=complete_metadata.csv Output=/hpcfs/users/a1667917/S_Aureus_Methylation/Output 
+# snakemake -c 1 -s rebasecall_runner.smk --use-conda  --conda-frontend conda --profile $PROF_DIR/methylation_gpu  \
+# --config csv=complete_metadata.csv Output=/hpcfs/users/a1667917/S_Aureus_Methylation/Output 
 
 # run from there
 
-# snakemake -c 1 -s runner.smk --use-conda  --conda-frontend conda --profile $PROF_DIR/methylation  --conda-create-envs-only  \
+# snakemake -c 1 -s nanodisco_runner.smk --use-conda  --conda-frontend conda --profile $PROF_DIR/methylation  --conda-create-envs-only  \
 # --config csv=complete_metadata.csv Output=/hpcfs/users/a1667917/S_Aureus_Methylation/Output 
 
-# snakemake -c 1 -s nanodisco_runner.smk --use-conda  --conda-frontend conda --profile $PROF_DIR/methylation  \
-# --config csv=complete_metadata.csv Output=/hpcfs/users/a1667917/S_Aureus_Methylation/Output 
+snakemake -c 1 -s nanodisco_runner.smk --use-conda  --conda-frontend conda --profile $PROF_DIR/methylation  \
+--config csv=complete_metadata.csv Output=/hpcfs/users/a1667917/S_Aureus_Methylation/Output 
 
 conda deactivate
