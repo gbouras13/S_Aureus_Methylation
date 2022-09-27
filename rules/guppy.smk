@@ -17,11 +17,11 @@ rule guppy:
         mem_mb=8000,
         partition='v100',
         gpu=1,
-        time=180
+        time=120
     shell:
         """
         module load  CUDA/11.2.0
-        {params[0]} --compress_fastq -i {input[0]} -s {params[1]} -c dna_r9.4.1_450bps_sup.cfg  -x auto  --fast5_out  --num_callers 4 --cpu_threads_per_caller 1
+        {params[0]} --compress_fastq -i {input[0]} -s {params[1]} -c dna_r9.4.1_450bps_sup.cfg  -x auto  --fast5_out  --num_callers 4 --cpu_threads_per_caller 1 --disable_pings
         """
 
 rule aggr_guppy:
