@@ -20,7 +20,7 @@ rule compress_fast5:
 rule aggr_compress_fast5:
     """Aggregate."""
     input:
-        expand(directory(os.path.join(REBASECALLED_FAST5_GZIP, "{sample}")), sample = SAMPLES)
+        expand(os.path.join(REBASECALLED_FAST5_GZIP, "{sample}"), sample = SAMPLES)
     output:
         os.path.join(LOGS, "aggr_compress_fast5.txt")
     conda:

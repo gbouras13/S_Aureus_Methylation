@@ -34,7 +34,7 @@ conda activate snakemake_clean_env
 
 # run from there
 
-# snakemake -c 1 -s nanodisco_runner.smk --use-conda  --conda-frontend conda --profile $PROF_DIR/methylation  --conda-create-envs-only  \
+# snakemake -c 1 -s nanodisco_runner.smk --use-conda  --conda-frontend conda   --conda-create-envs-only  \
 # --config csv=complete_metadata.csv Output=/hpcfs/users/a1667917/S_Aureus_Methylation/Output 
 
 snakemake -c 1 -s nanodisco_runner.smk --use-conda  --conda-frontend conda --profile $PROF_DIR/methylation  \
