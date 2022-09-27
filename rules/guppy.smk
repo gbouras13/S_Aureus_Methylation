@@ -21,7 +21,7 @@ rule guppy:
     resources:
         mem_mb=8000,
         partition='v100',
-        slurm="--gres=gpu:1",
+        slurm="gres=gpu:1",
         time=120
     shell:
         """
@@ -29,19 +29,5 @@ rule guppy:
         {params[0]} --compress_fastq -i {input[0]} -s {params[1]} -c dna_r9.4.1_450bps_sup.cfg  -x auto  --fast5_out  --num_callers 4 --cpu_threads_per_caller 1 --disable_pings
         """
 
-rule aggr_guppy:
-    """Aggregate."""
-    input:
-        expand(os.path.join(REBASECALLED_FAST5, "{sample}", "sequencing_summary.txt") , sample = SAMPLES)
-    output:
-        os.path.join(LOGS, "aggr_guppy.txt")
-    threads:
-        1
-    resources:
-        mem_mb=SmallJobMem,
-        time=3
-    shell:
-        """
-        touch {output[0]}
-        """
+
 

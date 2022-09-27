@@ -4,7 +4,6 @@ All target output files are declared here
 
 
 # Preprocessing files
-TargetFiles = [
-    os.path.join(LOGS, "aggr_guppy.txt"),
-    #os.path.join(LOGS, "aggr_compress_fast5.txt")
+GPUFiles = [
+     expand(os.path.join(REBASECALLED_FAST5, "{sample}", "sequencing_summary.txt") , sample = SAMPLES)
 ]

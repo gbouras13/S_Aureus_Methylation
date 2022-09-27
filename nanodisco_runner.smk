@@ -38,22 +38,6 @@ include: "rules/targets.smk"
 include: "rules/guppy.smk"
 
 
-# include: "rules/qc.smk"
-# include: "rules/assemble.smk"
-# include: "rules/assembly_statistics.smk"
-# if MEDAKA_FLAG == True:
-#     include: "rules/polish.smk"
-# elif MEDAKA_FLAG == False:
-#     include: "rules/polish_no_medaka.smk"
-# include: "rules/extract_fastas.smk"
-# include: "rules/extract_assembly_info.smk"
-# include: "rules/plassembler.smk"
-# # run if STAPH is true
-# if STAPH == True:
-#     include: "rules/mlst.smk"
-#     include: "rules/combine_mlst.smk"
-#     include: "rules/srst2.smk"
-
 rule all:
     input:
-        TargetFiles
+        GPUFiles
