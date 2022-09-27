@@ -3,7 +3,8 @@ rule nanodisco_difference:
     input:
         os.path.join(NANODISCO_PREPROCESS, "{sample}"),
         os.path.join(RefFastaDir, "{sample}.fasta"),
-        os.path.join(RefFastaDir, "{sample}.fasta.amb")
+        os.path.join(NANODISCO_PREPROCESS, "{sample}", "{sample}.sorted.bam"),
+        os.path.join(NANODISCO_PREPROCESS, "{sample}", "C308_WGA.sorted.bam")
     output:
         directory(os.path.join(NANODISCO_DIFFERENCE, "{sample}"))
     threads:
