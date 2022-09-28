@@ -8,7 +8,7 @@ rule nanodisco_difference:
     output:
         directory(os.path.join(NANODISCO_DIFFERENCE, "{sample}"))
     threads:
-        40
+        BigJobCpu
     params:
         os.path.join(NanoDiscoSingularityDir, "nanodisco"),
         'C308_WGA'
