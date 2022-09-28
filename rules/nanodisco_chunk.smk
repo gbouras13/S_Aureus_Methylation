@@ -21,7 +21,7 @@ rule nanodisco_chunk:
 rule aggr_nanodisco_chunk:
     """Aggregate."""
     input:
-        expand(os.path.join(RefFastaDir, "{sample}.fasta.amb"), sample = SAMPLES)
+        expand(os.path.join(RefFastaDir, "{sample}.fasta.ann"), sample = SAMPLES)
     output:
         os.path.join(LOGS, "aggr_nano_chunk.txt")
     threads:
