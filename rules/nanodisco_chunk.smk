@@ -5,7 +5,8 @@ rule nanodisco_chunk:
         os.path.join(NANODISCO_PREPROCESS, "{sample}", "{sample}.sorted.bam"),
         os.path.join(NANODISCO_PREPROCESS, "{sample}", "C308_WGA.sorted.bam")
     output:
-        os.path.join(RefFastaDir, "{sample}.fasta.amb")
+        os.path.join(RefFastaDir, "{sample}.fasta.amb"),
+        os.path.join(RefFastaDir, "{sample}.rev_comp.fasta.amb")
     threads:
         1
     params:
@@ -21,7 +22,7 @@ rule nanodisco_chunk:
 rule aggr_nanodisco_chunk:
     """Aggregate."""
     input:
-        expand(os.path.join(RefFastaDir, "{sample}.fasta.amb"), sample = SAMPLES),
+        expand(os.path.join(RefFastaDir, "{sample}.fasta.amb"), sample = SAMPLES)
     output:
         os.path.join(LOGS, "aggr_nano_chunk.txt")
     threads:
