@@ -8,13 +8,14 @@ rule nanodisco_difference:
     output:
         directory(os.path.join(NANODISCO_DIFFERENCE, "{sample}"))
     threads:
-        BigJobCpu
+        1
     params:
         os.path.join(NanoDiscoSingularityDir, "nanodisco"),
         'C308_WGA'
     resources:
         mem_mb=200000, 
-        time=1400
+        time=1400,
+        th=40
     shell:
         """
         module load Singularity

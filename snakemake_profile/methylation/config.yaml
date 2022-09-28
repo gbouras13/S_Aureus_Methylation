@@ -1,7 +1,8 @@
 cluster:
   mkdir -p logs/{rule}/ &&
   sbatch
-    --cpus-per-task={threads}
+    --nodes=1
+    --cpus-per-task={resources.th}
     --mem={resources.mem_mb}
     --time={resources.time}
     --job-name=smk-{rule}
@@ -12,9 +13,10 @@ default-resources:
   - mem_mb=100000
   - time=960 
   - partition=batch
+  - th=1
 jobs: 100
 latency-wait: 30
-local-cores: 16
+local-cores: 64
 restart-times: 1
 max-jobs-per-second: 1
 keep-going: True
