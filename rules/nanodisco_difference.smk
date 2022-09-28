@@ -18,7 +18,7 @@ rule nanodisco_difference:
     shell:
         """
         module load Singularity
-        singularity exec {params[0]} nanodisco difference  -nj 10 -nc -1 -p 4 -i {input[0]} -o {output[0]} -w {params[1]} -n {wildcards.sample} -r {input[1]}
+        singularity exec {params[0]} nanodisco difference  -nj 10 -nc 1 -p 4 -i {input[0]} -o {output[0]} -w {params[1]} -n {wildcards.sample} -r {input[1]}
         """
 
 rule aggr_nanodisco_difference:
