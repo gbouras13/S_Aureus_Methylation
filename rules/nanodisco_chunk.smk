@@ -5,8 +5,7 @@ rule nanodisco_chunk:
         os.path.join(NANODISCO_PREPROCESS, "{sample}", "{sample}.sorted.bam"),
         os.path.join(NANODISCO_PREPROCESS, "{sample}", "C308_WGA.sorted.bam")
     output:
-        os.path.join(RefFastaDir, "{sample}.fasta.amb"),
-        os.path.join(RefFastaDir, "{sample}.rev_comp.fasta.amb")
+        os.path.join(RefFastaDir, "{sample}.fasta.ann")
     threads:
         1
     params:
