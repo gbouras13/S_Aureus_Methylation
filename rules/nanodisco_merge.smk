@@ -3,7 +3,7 @@ rule nanodisco_merge:
     input:
         os.path.join(NANODISCO_DIFFERENCE, "{sample}")
     output:
-        os.path.join(NANODISCO_MERGE, "{sample}", "{sample}.RDS")
+        os.path.join(NANODISCO_MERGE, "{sample}", "{sample}_difference.RDS")
     threads:
         1
     params:
@@ -21,7 +21,7 @@ rule nanodisco_merge:
 rule aggr_nanodisco_merge:
     """Aggregate."""
     input:
-        expand(os.path.join(NANODISCO_MERGE, "{sample}", "{sample}.RDS"), sample = SAMPLES),
+        expand(os.path.join(NANODISCO_MERGE, "{sample}", "{sample}_difference.RDS"), sample = SAMPLES),
     output:
         os.path.join(LOGS, "aggr_nano_merge.txt")
     threads:
