@@ -1,7 +1,7 @@
 rule nanodisco_motif:
     """nanodisco_motif."""
     input:
-        os.path.join(NANODISCO_MERGE, "{sample}", "{sample}.RDS"),
+        os.path.join(NANODISCO_MERGE, "{sample}", "{sample}_difference.RDS"),
         os.path.join(RefFastaDir, "{sample}.fasta")
     output:
         os.path.join(NANODISCO_MOTIF, "{sample}", "motif_detection", "meme_{sample}", "meme_1", "meme.txt")
