@@ -4,7 +4,7 @@ rule nanodisco_motif:
         os.path.join(NANODISCO_MERGE, "{sample}", "{sample}_difference.RDS"),
         os.path.join(RefFastaDir, "{sample}.fasta")
     output:
-        os.path.join(NANODISCO_MOTIF, "{sample}", "motif_detection", "meme_{sample}", "meme_1", "meme.txt")
+        os.path.join(NANODISCO_MOTIF, "{sample}", "motif_detection", "meme_results", "meme_1", "meme.txt")
     threads:
         1
     params:
@@ -22,7 +22,7 @@ rule nanodisco_motif:
 rule aggr_nanodisco_motif:
     """Aggregate."""
     input:
-        expand(os.path.join(NANODISCO_MOTIF, "{sample}", "motif_detection", "meme_{sample}", "meme_1", "meme.txt"), sample = SAMPLES),
+        expand(os.path.join(NANODISCO_MOTIF, "{sample}", "motif_detection", "meme_results", "meme_1", "meme.txt"), sample = SAMPLES),
     output:
         os.path.join(LOGS, "aggr_nano_motif.txt")
     threads:
