@@ -19,10 +19,26 @@ rule nanodisco_motif:
         singularity exec {params[0]} nanodisco motif  -d {input[0]} -o {params[1]} -r {input[1]}
         """
 
+rule nanodisco_motif_move:
+    """nanodisco_motif move."""
+    input:
+        os.path.join(NANODISCO_MOTIF, "{sample}", "motif_detection", "meme_results", "meme_1", "meme.txt")
+    output:
+        os.path.join(NANODISCO_MOTIF_OUTPUT, "{sample}_meme.txt")
+    threads:
+        1
+    resources:
+        mem_mb=SmallJobMem, 
+        time=3
+    shell:
+        """
+        cp {input[0]} {output[0]}
+        """
+
 rule aggr_nanodisco_motif:
     """Aggregate."""
     input:
-        expand(os.path.join(NANODISCO_MOTIF, "{sample}", "motif_detection", "meme_results", "meme_1", "meme.txt"), sample = SAMPLES),
+        expand(os.path.join(NANODISCO_MOTIF_OUTPUT, "{sample}_meme.txt"), sample = SAMPLES),
     output:
         os.path.join(LOGS, "aggr_nano_motif.txt")
     threads:
