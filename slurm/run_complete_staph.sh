@@ -1,6 +1,6 @@
 #!/bin/bash -l
 
-#SBATCH --job-name=bact_assembly
+#SBATCH --job-name=methylation
 #SBATCH --mail-user=george.bouras@adelaide.edu.au
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=END
